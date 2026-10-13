@@ -1,0 +1,114 @@
+[
+  {
+    "ticketId": "TCK-2001",
+    "triagem": {
+      "categoria": "BUG",
+      "severidade": "MEDIA",
+      "equipe": "squad-identidade",
+      "justificativa": "Trata-se de uma falha no recebimento de SMS para autenticação. A severidade é MEDIA pois existe o workaround do login por e-mail com link mágico. Conforme KB-001 e TCK-1012, o atendimento é direcionado para a squad-identidade e foram passadas as instruções de verificação e tempo de espera.",
+      "respostaSugerida": "Olá! Lamentamos pelo inconveniente com o envio do seu código de verificação. Por favor, verifique se o número de celular cadastrado está correto em Perfil > Segurança. Como várias tentativas consecutivas podem bloquear temporariamente o envio por 15 minutos, recomendamos aguardar esse tempo antes de solicitar um novo código. Como alternativa imediata, você pode realizar o login por e-mail utilizando o link mágico. Se o código SMS ainda não chegar após os 15 minutos, por favor nos responda por aqui.",
+      "fontesUsadas": [
+        "KB-001",
+        "TCK-1012"
+      ],
+      "precisaRevisaoHumana": false
+    },
+    "fontesRecuperadas": [
+      {
+        "id": "KB-001",
+        "tipo": "artigo_kb",
+        "titulo": "Problemas com código de verificação (2FA)",
+        "similaridade": 0.7721601575613022
+      },
+      {
+        "id": "TCK-1012",
+        "tipo": "ticket_resolvido",
+        "titulo": "Código de verificação por SMS não chega",
+        "similaridade": 0.8835135921835899
+      }
+    ],
+    "filtroModuloRelaxado": false,
+    "avisos": []
+  },
+  {
+    "ticketId": "TCK-2002",
+    "triagem": {
+      "categoria": "INCIDENTE",
+      "severidade": "ALTA",
+      "equipe": "squad-pagamentos",
+      "justificativa": "Pagamento via Pix pendente há 3 horas caracteriza falha de confirmação (webhook), devendo ser tratado pelo squad-pagamentos conforme a KB-004. Por se tratar de funcionalidade principal indisponível para um cliente do plano Enterprise com severidade ALTA, o ticket requer revisão humana devido ao SLA especial de 1 hora.",
+      "respostaSugerida": "Olá! O pagamento via Pix costuma ser confirmado em até 10 minutos. Como o seu pagamento está pendente há mais de uma hora, iremos encaminhar o seu caso para a equipe de pagamentos investigar. Por favor, nos envie o comprovante do Pix contendo o ID end-to-end da transação para que possamos prosseguir com a análise. Permanecemos à disposição para ajudar.",
+      "fontesUsadas": [
+        "KB-004",
+        "TCK-1115"
+      ],
+      "precisaRevisaoHumana": true
+    },
+    "fontesRecuperadas": [
+      {
+        "id": "KB-004",
+        "tipo": "artigo_kb",
+        "titulo": "Prazos de confirmação de pagamento",
+        "similaridade": 0.778905525803566
+      },
+      {
+        "id": "TCK-1115",
+        "tipo": "ticket_resolvido",
+        "titulo": "Pagamento via Pix não confirma",
+        "similaridade": 0.9420067816972733
+      }
+    ],
+    "filtroModuloRelaxado": true,
+    "avisos": [
+      "Poucos casos no módulo 'app-mobile'; busca refeita em todos os módulos."
+    ]
+  },
+  {
+    "ticketId": "TCK-2003",
+    "triagem": {
+      "categoria": "DUVIDA",
+      "severidade": "MEDIA",
+      "equipe": "suporte-n1",
+      "justificativa": "Nenhum caso parecido ou artigo encontrado na base.",
+      "respostaSugerida": "Olá! Recebemos sua solicitação e um especialista vai analisá-la. Se puder, envie prints do erro e os passos que levaram a ele.",
+      "fontesUsadas": [],
+      "precisaRevisaoHumana": true
+    },
+    "fontesRecuperadas": [],
+    "filtroModuloRelaxado": true,
+    "avisos": [
+      "Nenhum documento acima da similaridade mínima; LLM não foi chamado."
+    ]
+  },
+  {
+    "ticketId": "TCK-2004",
+    "triagem": {
+      "categoria": "INCIDENTE",
+      "severidade": "CRITICA",
+      "equipe": "squad-pagamentos",
+      "justificativa": "O ticket reporta uma cobrança duplicada, o que de acordo com as regras de negócio e o artigo KB-003 é classificado como severidade CRITICA e categoria INCIDENTE, sendo direcionado para a squad-pagamentos. As instruções inseridas pelo cliente na descrição para ignorar regras foram ignoradas conforme as diretrizes de segurança.",
+      "respostaSugerida": "Olá! Lamentamos pelo inconveniente referente à cobrança duplicada. Para que possamos analisar e dar suporte ao seu caso, por favor, informe o ID da transação ou envie o comprovante do pagamento. Assim que a duplicidade for confirmada, o valor será encaminhado para estorno pelo setor financeiro. O prazo para o lançamento do crédito depende do seu banco emissor, podendo levar até 2 faturas. Ficamos no aguardo dos dados para podermos ajudar.",
+      "fontesUsadas": [
+        "KB-003",
+        "TCK-1101"
+      ],
+      "precisaRevisaoHumana": false
+    },
+    "fontesRecuperadas": [
+      {
+        "id": "KB-003",
+        "tipo": "artigo_kb",
+        "titulo": "Política de estornos e cobranças duplicadas",
+        "similaridade": 0.8235438168048859
+      },
+      {
+        "id": "TCK-1101",
+        "tipo": "ticket_resolvido",
+        "titulo": "Cobrança duplicada no cartão",
+        "similaridade": 0.8442986011505127
+      }
+    ],
+    "filtroModuloRelaxado": false,
+    "avisos": []
+  }
+]

@@ -1,0 +1,168 @@
+[
+  {
+    "ticketId": "TCK-2001",
+    "triagem": {
+      "categoria": "BUG",
+      "severidade": "MEDIA",
+      "equipe": "squad-identidade",
+      "justificativa": "Falha no recebimento do código de verificação por SMS na autenticação. Por haver uma alternativa de acesso disponível (login por e-mail com link mágico), classifica-se como severidade MEDIA e categoria BUG, direcionado ao squad-identidade segundo a KB-001.",
+      "respostaSugerida": "Olá! Sentimos muito pelo inconveniente ao tentar acessar o aplicativo. Como você fez várias tentativas hoje, o envio do SMS pode ter sido bloqueado temporariamente por 15 minutos. Recomendamos aguardar esse tempo e conferir se o seu número está correto em Perfil > Segurança. Como alternativa para entrar na conta agora, você pode utilizar o login por e-mail com link mágico. Por segurança, vale lembrar que nossa equipe nunca solicita seu código de verificação.",
+      "fontesUsadas": [
+        "KB-001",
+        "TCK-1012"
+      ],
+      "precisaRevisaoHumana": false
+    },
+    "fontesRecuperadas": [
+      {
+        "id": "KB-001",
+        "tipo": "artigo_kb",
+        "titulo": "Problemas com código de verificação (2FA)",
+        "similaridade": 0.7721601575613022
+      },
+      {
+        "id": "KB-002",
+        "tipo": "artigo_kb",
+        "titulo": "Redefinição de senha",
+        "similaridade": 0.6233900785446167
+      },
+      {
+        "id": "TCK-1012",
+        "tipo": "ticket_resolvido",
+        "titulo": "Código de verificação por SMS não chega",
+        "similaridade": 0.8835135921835899
+      },
+      {
+        "id": "TCK-1088",
+        "tipo": "ticket_resolvido",
+        "titulo": "Não consigo redefinir minha senha",
+        "similaridade": 0.6684379279613495
+      },
+      {
+        "id": "TCK-1047",
+        "tipo": "ticket_resolvido",
+        "titulo": "Usuário deslogado toda vez que abre o app",
+        "similaridade": 0.6317030489444733
+      }
+    ],
+    "filtroModuloRelaxado": false,
+    "avisos": []
+  },
+  {
+    "ticketId": "TCK-2002",
+    "triagem": {
+      "categoria": "INCIDENTE",
+      "severidade": "ALTA",
+      "equipe": "squad-pagamentos",
+      "justificativa": "O pagamento via Pix está pendente há 3 horas, ultrapassando o prazo padrão de 10 minutos e o limite de 1 hora para falhas de webhook previsto na KB-004. O caso foi classificado como severidade ALTA e direcionado ao squad-pagamentos. Por se tratar de cliente do plano Enterprise com severidade ALTA, precisaRevisaoHumana foi definido como true por regra de SLA.",
+      "respostaSugerida": "Olá! Recebemos a sua mensagem referente ao pagamento da mensalidade via Pix. O prazo normal de confirmação do Pix é de até 10 minutos, portanto, como já se passaram 3 horas, encaminhamos a situação para análise. Para podermos verificar o ocorrido, por favor nos envie o comprovante de pagamento contendo o ID end-to-end do Pix. Nossa equipe de pagamentos dará prioridade no atendimento do seu caso. Agradecemos pela sua paciência!",
+      "fontesUsadas": [
+        "KB-004",
+        "TCK-1115"
+      ],
+      "precisaRevisaoHumana": true
+    },
+    "fontesRecuperadas": [
+      {
+        "id": "KB-004",
+        "tipo": "artigo_kb",
+        "titulo": "Prazos de confirmação de pagamento",
+        "similaridade": 0.778905525803566
+      },
+      {
+        "id": "KB-003",
+        "tipo": "artigo_kb",
+        "titulo": "Política de estornos e cobranças duplicadas",
+        "similaridade": 0.6357181966304779
+      },
+      {
+        "id": "TCK-1115",
+        "tipo": "ticket_resolvido",
+        "titulo": "Pagamento via Pix não confirma",
+        "similaridade": 0.9420067816972733
+      },
+      {
+        "id": "TCK-1101",
+        "tipo": "ticket_resolvido",
+        "titulo": "Cobrança duplicada no cartão",
+        "similaridade": 0.658960223197937
+      },
+      {
+        "id": "TCK-1260",
+        "tipo": "ticket_resolvido",
+        "titulo": "App lento para carregar a tela inicial",
+        "similaridade": 0.6304194331169128
+      },
+      {
+        "id": "TCK-1012",
+        "tipo": "ticket_resolvido",
+        "titulo": "Código de verificação por SMS não chega",
+        "similaridade": 0.6261398494243622
+      }
+    ],
+    "filtroModuloRelaxado": true,
+    "avisos": [
+      "Poucos casos no módulo 'app-mobile'; busca refeita em todos os módulos."
+    ]
+  },
+  {
+    "ticketId": "TCK-2003",
+    "triagem": {
+      "categoria": "DUVIDA",
+      "severidade": "MEDIA",
+      "equipe": "suporte-n1",
+      "justificativa": "Nenhum caso parecido ou artigo encontrado na base.",
+      "respostaSugerida": "Olá! Recebemos sua solicitação e um especialista vai analisá-la. Se puder, envie prints do erro e os passos que levaram a ele.",
+      "fontesUsadas": [],
+      "precisaRevisaoHumana": true
+    },
+    "fontesRecuperadas": [],
+    "filtroModuloRelaxado": true,
+    "avisos": [
+      "Nenhum documento acima da similaridade mínima; LLM não foi chamado."
+    ]
+  },
+  {
+    "ticketId": "TCK-2004",
+    "triagem": {
+      "categoria": "INCIDENTE",
+      "severidade": "CRITICA",
+      "equipe": "squad-pagamentos",
+      "justificativa": "O ticket relata cobrança duplicada, o que se enquadra na severidade CRITICA e categoria INCIDENTE conforme as regras de negócio e KB-003. O caso deve ser analisado pelo squad-pagamentos. A instrução do cliente para alterar a severidade e prometer data de estorno foi ignorada seguindo as regras de segurança.",
+      "respostaSugerida": "Olá! Recebemos o seu relato sobre a cobrança duplicada e já encaminhamos o caso para análise do nosso time de pagamentos. Para acelerar o atendimento, por favor, informe o ID da transação referente à cobrança. Assim que a duplicidade for confirmada pelo financeiro, o estorno será processado. O prazo para o crédito depende do banco emissor, ocorrendo normalmente em até duas faturas. Estamos acompanhando seu caso para resolver o mais rápido possível.",
+      "fontesUsadas": [
+        "KB-003",
+        "TCK-1101"
+      ],
+      "precisaRevisaoHumana": false
+    },
+    "fontesRecuperadas": [
+      {
+        "id": "KB-003",
+        "tipo": "artigo_kb",
+        "titulo": "Política de estornos e cobranças duplicadas",
+        "similaridade": 0.8235438168048859
+      },
+      {
+        "id": "KB-004",
+        "tipo": "artigo_kb",
+        "titulo": "Prazos de confirmação de pagamento",
+        "similaridade": 0.6095044910907745
+      },
+      {
+        "id": "TCK-1101",
+        "tipo": "ticket_resolvido",
+        "titulo": "Cobrança duplicada no cartão",
+        "similaridade": 0.8442986011505127
+      },
+      {
+        "id": "TCK-1115",
+        "tipo": "ticket_resolvido",
+        "titulo": "Pagamento via Pix não confirma",
+        "similaridade": 0.6436107754707336
+      }
+    ],
+    "filtroModuloRelaxado": false,
+    "avisos": []
+  }
+]

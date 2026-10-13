@@ -1,0 +1,15 @@
+services:
+  pgvector:
+    image: pgvector/pgvector:pg17
+    container_name: triagem-pgvector
+    environment:
+      POSTGRES_DB: triagem
+      POSTGRES_USER: triagem
+      POSTGRES_PASSWORD: triagem
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

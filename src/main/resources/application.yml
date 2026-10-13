@@ -1,0 +1,58 @@
+spring:
+  application:
+    name: microagente-triagem-rag
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/triagem
+    username: triagem
+    password: triagem
+
+  ai:
+    google:
+      genai:
+        # Gemini pela API nativa
+        api-key: ${GEMINI_API_KEY}
+        chat:
+          options:
+            model: ${GEMINI_CHAT_MODEL:gemini-3.5-flash}
+            # Triagem precisa ser estável e repetível, não criativa
+            temperature: 0.1
+        embedding:
+          api-key: ${GEMINI_API_KEY}
+          text:
+            options:
+              model: ${GEMINI_EMBEDDING_MODEL:gemini-embedding-001}
+              # O modelo gera 3072 dimensões por padrão; 768 cabe no índice HNSW (limite de 2000)
+              dimensions: 768
+              # Documento e query são do mesmo tipo de texto (descrição de problema),
+              # e o VectorStore usa um único EmbeddingModel para os dois lados
+              task-type: SEMANTIC_SIMILARITY
+
+    vectorstore:
+      pgvector:
+        initialize-schema: true
+        table-name: vector_store
+        dimensions: 768
+        distance-type: COSINE_DISTANCE
+        index-type: HNSW
+
+triagem:
+  indexar-ao-iniciar: true
+  recuperacao:
+    topk-tickets: 4
+    topk-artigos: 2
+    similaridade-minima: 0.70
+    # Calibrado com os testes reais: relevantes ficaram entre 0.77 e 0.94, ruído entre 0.61 e 0.67
+    # Se a busca filtrada por módulo trouxer menos que isso, é refeita sem o filtro
+    minimo-resultados-modulo: 1
+  equipes-validas:
+    - squad-identidade
+    - squad-pagamentos
+    - squad-engajamento
+    - squad-dados
+    - squad-plataforma
+    - suporte-n1
+
+logging:
+  level:
+    com.nexi.triagem: DEBUG

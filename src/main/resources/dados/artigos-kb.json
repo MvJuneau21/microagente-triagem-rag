@@ -1,0 +1,58 @@
+[
+  {
+    "id": "KB-001",
+    "titulo": "Problemas com código de verificação (2FA)",
+    "conteudo": "Se o código por SMS não chegar: 1) confira se o número cadastrado está correto em Perfil > Segurança; 2) aguarde 15 minutos antes de pedir um novo código, pois após 3 tentativas seguidas o envio é bloqueado temporariamente; 3) como alternativa, use o login por e-mail com link mágico. O suporte nunca solicita o código de verificação ao cliente. Se após 15 minutos o código ainda não chegar, o ticket deve ser encaminhado ao squad de identidade.",
+    "modulo": "autenticacao",
+    "vigente": true,
+    "atualizadoEm": "2026-08-20"
+  },
+  {
+    "id": "KB-002",
+    "titulo": "Redefinição de senha",
+    "conteudo": "O link de redefinição de senha vale por 30 minutos e só pode ser usado uma vez. Se aparecer 'link expirado' logo após o envio, peça ao cliente para copiar o link e abri-lo em uma janela anônima, ou redefinir pelo app. Filtros de segurança de e-mail corporativo podem consumir o link antes do usuário.",
+    "modulo": "autenticacao",
+    "vigente": true,
+    "atualizadoEm": "2026-07-25"
+  },
+  {
+    "id": "KB-003",
+    "titulo": "Política de estornos e cobranças duplicadas",
+    "conteudo": "Cobranças duplicadas confirmadas são estornadas pelo financeiro. O prazo de crédito na fatura depende do banco emissor, normalmente até 2 faturas. O suporte não deve prometer data exata de estorno. Toda suspeita de cobrança duplicada é severidade CRITICA e vai para o squad de pagamentos com o ID da transação.",
+    "modulo": "pagamentos",
+    "vigente": true,
+    "atualizadoEm": "2026-09-12"
+  },
+  {
+    "id": "KB-004",
+    "titulo": "Prazos de confirmação de pagamento",
+    "conteudo": "Cartão de crédito: confirmação imediata. Pix: até 10 minutos. Boleto: até 3 dias úteis. Pix pendente há mais de 1 hora indica falha de webhook e deve ser escalado ao squad de pagamentos com o comprovante (ID end-to-end).",
+    "modulo": "pagamentos",
+    "vigente": true,
+    "atualizadoEm": "2026-08-31"
+  },
+  {
+    "id": "KB-005",
+    "titulo": "Prazos de confirmação de pagamento (versão antiga)",
+    "conteudo": "Pix: confirmação em até 24 horas. Boleto: até 5 dias úteis. Não escalar antes desse prazo.",
+    "modulo": "pagamentos",
+    "vigente": false,
+    "atualizadoEm": "2025-11-10"
+  },
+  {
+    "id": "KB-006",
+    "titulo": "Limites de uso da API pública",
+    "conteudo": "Plano Pro: 100 requisições por minuto. Plano Enterprise: 1000 requisições por minuto. Ao exceder, a API retorna HTTP 429 com o header Retry-After em segundos. Use os endpoints de lote (/batch) para reduzir chamadas. Tokens de API expiram em 90 dias.",
+    "modulo": "integracoes-api",
+    "vigente": true,
+    "atualizadoEm": "2026-08-01"
+  },
+  {
+    "id": "KB-007",
+    "titulo": "Notificações push no Android",
+    "conteudo": "Para garantir o recebimento de notificações: 1) Ajustes > Apps > Nexi > Notificações: permitir; 2) desativar a otimização de bateria para o app (especialmente Xiaomi, Samsung e Motorola); 3) manter o app atualizado. Se nenhum cliente está recebendo notificações, trate como incidente e acione o squad de engajamento.",
+    "modulo": "notificacoes",
+    "vigente": true,
+    "atualizadoEm": "2026-07-10"
+  }
+]
